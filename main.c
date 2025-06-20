@@ -1,5 +1,9 @@
 #include <unistd.h>
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+// This program converts a number in string format to its English word representation
+// It handles numbers up to 999 decillion and prints them in a human-readable format
 
 int main (int argc, char *argv[]) {
 	// Check if the correct number of arguments is provided
@@ -15,9 +19,15 @@ int main (int argc, char *argv[]) {
 	int i;
 	for (i = 0; str[i]; i++)
 	{
+		if (str[i] < '0' || str[i] > '9') {
+			write(1, "Error\n", 6); // Print error message if input is invalid
+			return 1; // Return an error code
+		}
 		int j = len - i - 1;
-		/* if (!(j % 3 == 1 && str[i] == '1')) */
-		if (i > 0 && str[i] != '0')
+		/* printf("i: %d, j: %d, str[i]: %c\n", i, j, str[i]); */
+		if ((i > 0 && str[i] != '0')
+			&& !(j % 3 == 1 && str[i] == '1')
+			&& !(len == 2 && str[0] == '1'))
 			write(1, " ", 1);
 		switch (str[i])
 		{
