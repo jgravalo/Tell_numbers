@@ -50,7 +50,7 @@ int main (int argc, char *argv[]) {
 			break;
 
 			case '4':
-			if (j % 3 == 1) write(1, "fourty", 6);
+			if (j % 3 == 1) write(1, "forty", 5);
 			else if (j % 3 == 0 && str[i - 1] == '1') write(1, "fourteen", 8);
 			else write(1, "four", 4);
 			break;
@@ -85,8 +85,6 @@ int main (int argc, char *argv[]) {
 			else write(1, "nine", 4);
 			break;
 		}
-		/* if (!(j % 3 == 1 && str[i] == '1'))
-			write(1, " ", 1); */
 		if (j % 3 == 2 && str[i] != '0') write(1, " hundred", 8);
 		if (j % 3 == 0 && (str[i] != '0'
 			|| str[i - 1] != '0' || str[i - 2] != '0'))
